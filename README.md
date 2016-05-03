@@ -1,6 +1,6 @@
 # AleksBot
 
-This repo as of 5/2/2016 contains code for a tank-drive style robot to track a ball. The robot is controlled by victor 888 motor controllers, which are controlled with a 1-2 ms pwm pulse. 1 is all the way backwards, while 2 is all the way forwards. No movement is 1.5 ms pulse.
+This repo contains code for a tank-drive style robot to track a ball. The robot is controlled by Victor 888 motor controllers, which are controlled with a 1-2 ms pwm pulse. 1 is all the way backwards, while 2 is all the way forwards. No movement is 1.5 ms pulse.
 
 To enable pwm, run:
     `chmod +x preparePWM.sh`
