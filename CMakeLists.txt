@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 2.8)
+project( roboCore )
+find_package( OpenCV REQUIRED )
+add_executable( roboCore roboCore.cpp )
+target_link_libraries( roboCore ${OpenCV_LIBS} )
