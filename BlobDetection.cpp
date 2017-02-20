@@ -1,6 +1,6 @@
 #include "BlobDetection.h"
 
-Mat BlobDetection::blobDetect(Mat frame) {
+BlobReturn BlobDetection::blobDetect(Mat frame) {
     Mat edges;
     Mat contoursFrame;
     vector <vector<Point> > contours;
@@ -13,9 +13,10 @@ Mat BlobDetection::blobDetect(Mat frame) {
     inRange(edges, Scalar(36, 152, 50), Scalar(113, 255, 255), edges);
     findContours(edges.clone(), contours, hierarchy, CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE, Point(0, 0));
 
+    double xPos;
+    double yPos;
+
     if (contours.size() > 0) {
-        double xPos;
-        double yPos;
         vector <Moments> mu(contours.size());
         vector <Point2f> mc(contours.size());
         for (int i = 0; i < contours.size(); i++) {
@@ -31,7 +32,11 @@ Mat BlobDetection::blobDetect(Mat frame) {
         }
         circle(frame, mc[largest_contour_index], 4, Scalar(255, 0, 0), -1, 8, 0);
         drawContours(frame, contours, largest_contour_index, Scalar(255, 0, 0), 1, 8, hierarchy);
-
     }
-    return frame;
+
+    BlobReturn returnValue;
+    returnValue.frameOutput = frame;
+    returnValue.xPosOutput = xPos;
+    returnValue.yPosOutput = yPos;
+    return returnValue;
 }

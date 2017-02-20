@@ -10,9 +10,12 @@ int main(int, char**)
     namedWindow("edges", 1);
     Mat frame;
 
+    BlobReturn blobData;
+
     for(;;) {
         cap >> frame;
-        frame = BlobDetection::blobDetect(frame);
+        blobData = BlobDetection::blobDetect(frame);
+        frame = blobData.frameOutput;
         imshow("edges", frame);
         if (waitKey(30) >= 0) break;
     }

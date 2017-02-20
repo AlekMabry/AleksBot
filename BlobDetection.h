@@ -11,9 +11,15 @@
 using namespace cv;
 using namespace std;
 
+struct BlobReturn {
+    Mat frameOutput;
+    double xPosOutput;
+    double yPosOutput;
+};
+
 class BlobDetection {
 public:
-    static Mat blobDetect(Mat frame);
+    static BlobReturn blobDetect(Mat frame);
 };
 
 
