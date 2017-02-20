@@ -19,8 +19,8 @@ struct BlobReturn {
 
 class BlobDetection {
 public:
+    static double getDistance(double knownWidth, double focalLength, double perWidth);
     static BlobReturn blobDetect(Mat frame);
 };
-
 
 #endif //ROBOCORE_BLOBDETECTION_H
